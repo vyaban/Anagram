@@ -1,30 +1,3 @@
-/*
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-#app {
-    width: 100%;
-    height: 100%;
-    padding: 1em;
-    background-color: black;
-    
-    color: white;
-    text-transform: uppercase;
-    font-family: sans-serif;
-}
-
-.filled {
-    color: white;
-}
-
-.notFilled {
-    color: gray
-}
-*/
-
-
 import React from 'react';
 import {render} from 'react-dom';
 
@@ -155,7 +128,6 @@ class Anagram extends React.Component {
      let originalWord = this.state.origWord.word || "Type an Anagram"
      
      return <div>
-             <h1>Anagram Decipherer</h1>
              <input name="origWord" className="topInput" type="text" value={this.state.origWord.word} onChange={this.inputTextChange} />
              <AnagramProgress anagramCharCounts={clonedAnagramCharCount} origCharArr={originalWord.split('')} />
              <input name="anagramWord" className="bottomInput" type="text" value={this.state.anagramWord.word} onChange={this.inputTextChange} />
@@ -163,9 +135,23 @@ class Anagram extends React.Component {
    }
 }
 
+class AppHeader extends React.Component {
+  render () {
+    return <div id="header">
+             <h1>Anagram Decipherer</h1>
+             <h2>Inspired by Daniel Eden (@_dte)</h2>
+             <a href="https://codepen.io/daneden/pen/GrodWv">https://codepen.io/daneden/pen/GrodWv</a>
+             <br />
+      </div>
+  } 
+}
+
 class App extends React.Component {
     render () {
-        return <Anagram word="Type an anagram" anagram="Type Anagram Here"/>
+        return <div>
+          <AppHeader />
+          <Anagram word="Type an anagram" anagram="Type Anagram Here"/>
+        </div>
     }
 }
 

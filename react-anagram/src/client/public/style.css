@@ -31,7 +31,26 @@ html, body {
 
 h1 {
 	font-size: 1em;
+	letter-spacing: 0.25em;
+	margin-bottom: 0;
 }
+
+h2  {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.5em;
+    letter-spacing: 0.2em;
+}
+
+a {
+    margin-top: 0;
+    font-size: 0.2em;
+}
+
+#header {
+    margin-bottom: 0.35em;
+}
+
 
 #app {
     width: 100%;
