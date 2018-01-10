@@ -12,6 +12,8 @@ html, body {
     color: white;
     text-transform: uppercase;
     font-family: sans-serif;
+    font-weight: 600;
+    font-size: 3em;
 }
 
 .filled {

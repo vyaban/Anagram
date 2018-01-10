@@ -1,3 +1,30 @@
+/*
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    background-color: black;
+    
+    color: white;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.filled {
+    color: white;
+}
+
+.notFilled {
+    color: gray
+}
+*/
+
+
 import React from 'react';
 import {render} from 'react-dom';
 
@@ -42,9 +69,6 @@ class AnagramProgress extends React.Component {
     }
     
     toSpanReducer(context, letter) {
-        console.log("Reduction Step");
-        console.log(context);
-        console.log(letter);
         let charCounts = context.charCounts;
         
         if (charCounts[letter.toUpperCase()] == null || charCounts[letter.toUpperCase()] == 0) {
@@ -53,9 +77,7 @@ class AnagramProgress extends React.Component {
                 charCounts: charCounts
             }
         } else {
-            console.log(charCounts[letter.toUpperCase()]);
             charCounts[letter.toUpperCase()] = charCounts[letter.toUpperCase()] - 1;
-            console.log(charCounts[letter.toUpperCase()]);
                 
             return {
                 spans: context.spans.concat(<Letter filled={true} letter={letter} />),
@@ -128,10 +150,11 @@ class Anagram extends React.Component {
     
    render () {
      let clonedAnagramCharCount = JSON.parse(JSON.stringify(this.state.anagramWord.letters));
+     let originalWord = this.state.origWord.word || "Type an Anagram"
      
      return <div>
              <input name="origWord" type="text" value={this.state.origWord.word} onChange={this.inputTextChange} />
-             <AnagramProgress anagramCharCounts={clonedAnagramCharCount} origCharArr={this.state.origWord.word.split('')} />
+             <AnagramProgress anagramCharCounts={clonedAnagramCharCount} origCharArr={originalWord.split('')} />
              <input name="anagramWord" type="text" value={this.state.anagramWord.word} onChange={this.inputTextChange} />
          </div>;
    }
