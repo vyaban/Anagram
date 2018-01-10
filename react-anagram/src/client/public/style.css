@@ -3,8 +3,34 @@ html, body {
     padding: 0;
 }
 
-input {
+.topInput {
+	background: transparent;
+	color: #e06d6d;
+	outline: none;
+	border: none;
+	border-bottom: 3px solid;
+	max-width: 100%;
+	font-size: 1em;
+	text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
 
+.bottomInput {
+	background: transparent;
+	color: #77e06d;
+	outline: none;
+	border: none;
+	border-bottom: 3px solid;
+	max-width: 100%;
+	font-size: 1em;
+	text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+h1 {
+	font-size: 1em;
 }
 
 #app {
@@ -20,6 +46,7 @@ input {
     font-size: 3em;
     letter-spacing: 0.05em;
     overflow-wrap: break-word;
+
 }
 
 .filled {

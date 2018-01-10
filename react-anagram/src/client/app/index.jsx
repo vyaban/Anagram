@@ -106,21 +106,23 @@ class AnagramProgress extends React.Component {
 }
 
 class Anagram extends React.Component {
+
     constructor(props) {
         super(props);
+        
+        this.inputTextChange = this.inputTextChange.bind(this);
+        this.calculateCharacterBank = this.calculateCharacterBank.bind(this);
+        
         this.state = {
             origWord: {
                 word: props.word,
                 letters: {}
             },
             anagramWord: {
-                word: "",
-                letters: {}
+                word: props.anagram,
+                letters: this.calculateCharacterBank(props.anagram.toUpperCase())
             }
-        };
-        
-        this.inputTextChange = this.inputTextChange.bind(this);
-        this.calculateCharacterBank = this.calculateCharacterBank.bind(this);
+        };        
     }
     
     calculateCharacterBank(word) {
@@ -153,16 +155,17 @@ class Anagram extends React.Component {
      let originalWord = this.state.origWord.word || "Type an Anagram"
      
      return <div>
-             <input name="origWord" type="text" value={this.state.origWord.word} onChange={this.inputTextChange} />
+             <h1>Anagram Decipherer</h1>
+             <input name="origWord" className="topInput" type="text" value={this.state.origWord.word} onChange={this.inputTextChange} />
              <AnagramProgress anagramCharCounts={clonedAnagramCharCount} origCharArr={originalWord.split('')} />
-             <input name="anagramWord" type="text" value={this.state.anagramWord.word} onChange={this.inputTextChange} />
+             <input name="anagramWord" className="bottomInput" type="text" value={this.state.anagramWord.word} onChange={this.inputTextChange} />
          </div>;
    }
 }
 
 class App extends React.Component {
     render () {
-        return <Anagram word="Type an anagram" />
+        return <Anagram word="Type an anagram" anagram="Type Anagram Here"/>
     }
 }
 
