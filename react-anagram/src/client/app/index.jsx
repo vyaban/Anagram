@@ -127,9 +127,11 @@ class Anagram extends React.Component {
     }
     
    render () {
+     let clonedAnagramCharCount = JSON.parse(JSON.stringify(this.state.anagramWord.letters));
+     
      return <div>
              <input name="origWord" type="text" value={this.state.origWord.word} onChange={this.inputTextChange} />
-             <AnagramProgress anagramCharCounts={this.state.anagramWord.letters} origCharArr={this.state.origWord.word.split('')} />
+             <AnagramProgress anagramCharCounts={clonedAnagramCharCount} origCharArr={this.state.origWord.word.split('')} />
              <input name="anagramWord" type="text" value={this.state.anagramWord.word} onChange={this.inputTextChange} />
          </div>;
    }
